@@ -36,6 +36,7 @@ print("Columns after changing name:", data.columns)
 data.loc[data['Category'] == 'spam','Category']=0
 data.loc[data["Category"] == 'ham','Category']=1
 
+#Splitting Data
 X = data['SMS']
 y = data['Category']
 
@@ -58,7 +59,7 @@ model.fit(X_trian_features, y_train)
 prediction_on_test_data = model.predict(X_test_features)
 print("Accuracy score :", accuracy_score(y_test, prediction_on_test_data))
 
-
+#Taking Input
 input = ["WINNER!! As a valued network customer you have been selected to receivea �900 prize reward! To claim call 09061701461. Claim code KL341. Valid 12 hours only."]
 input_sms = feature_extraction.transform(input)
 
