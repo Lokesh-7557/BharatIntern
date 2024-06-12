@@ -1,6 +1,7 @@
 #importing libraries
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer 
 from sklearn.linear_model import LogisticRegression
@@ -31,6 +32,11 @@ print("Duplicate Values in dataset after removing duplicates :", data.duplicated
 data.rename(columns={'v1': 'Category', 'v2': 'SMS'}, inplace=True)
 print(data.head())
 print("Columns after changing name:", data.columns)
+
+#Visualizing Data
+plt.pie(data['Category'].value_counts(), labels=['ham', 'spam'], autopct="%0.2f")
+plt.title("Spam SMS Data")
+plt.show()
 
 #Labeling
 data.loc[data['Category'] == 'spam','Category']=0
